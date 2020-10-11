@@ -1,5 +1,5 @@
 # Contributor(s) Name(s): Asa Henry, 
-# Contributor(s) Email(s): ajh728@gmail.com, 
+# Contributor(s) Email(s): ajh728@nau.edu, 
 
 # Imports
 import random
