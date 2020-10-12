@@ -1,5 +1,5 @@
-# Contributor(s) Name(s): Asa Henry, 
-# Contributor(s) Email(s): ajh728@nau.edu, 
+# Contributor(s) Name(s): Asa Henry, Hunter Browning
+# Contributor(s) Email(s): ajh728@nau.edu, hsb55@nau.edu
 
 # Imports
 import random
