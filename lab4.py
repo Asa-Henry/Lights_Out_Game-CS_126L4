@@ -8,8 +8,6 @@
 import random
 
 
-
-
 # Main
 def main():
     # Setup
@@ -21,22 +19,15 @@ def main():
 
     number_of_moves = 0
 
-
     game_Over = False
 
     board = randomize_board(board, states)
-
-
-
 
     # Game
     Game(board, number_of_moves, states, game_Over)
 
 
-
-
 # Functions
-# Setup Functions
 def randomize_board(board, states):
     for row in range(5):
         for col in range(5):
@@ -45,60 +36,56 @@ def randomize_board(board, states):
             board[row][col] = state
 
             if state == states['on']:
-                current_row = row
-                current_col = col
+                c_row = row
+                c_col = col
 
-                board = change_neighbors(current_row, current_col, board, states)
+                board = d_neighbors(c_row, c_col, board, states)
 
     return board
 
 
-def change_neighbors(current_row, current_col, board, states):
-    if not current_row == 0:
+def d_neighbors(c_row, c_col, board, states):
+    if not c_row == 0:
         # Above
-        board[current_row - 1][current_col] = change_state(board[current_row - 1][current_col], states)
-    
-    if not current_col == 0:
+        board[c_row - 1][c_col] = d_state(board[c_row - 1][c_col], states)
+
+    if not c_col == 0:
         # Left
-        board[current_row][current_col - 1] = change_state(board[current_row][current_col - 1], states)
+        board[c_row][c_col - 1] = d_state(board[c_row][c_col - 1], states)
 
-    if not current_col == 4:
-        # Right      
-        board[current_row][current_col + 1] = change_state(board[current_row][current_col + 1], states)
+    if not c_col == 4:
+        # Right
+        board[c_row][c_col + 1] = d_state(board[c_row][c_col + 1], states)
 
-    if not current_row == 4:
+    if not c_row == 4:
         # Below
-        board[current_row + 1][current_col] = change_state(board[current_row + 1][current_col], states)
-    
-    return board
+        board[c_row + 1][c_col] = d_state(board[c_row + 1][c_col], states)
 
+    return board
 
 
 # Game Functions
 def Game(board, number_of_moves, states, game_Over):
     while not game_Over:
         display_board(board)
-        
 
-        chosen_row = int(input("Please choose a row number (Please, only 0 - 4): "))
-        chosen_col = int(input("Please choose a column number (Please, only 0 - 4): "))
-
+        chosen_row = int(input("Choose a row number (0 - 4): "))
+        chosen_col = int(input("Choose a column number (0 - 4): "))
 
         for row in range(5):
             for col in range(5):
                 if (row == chosen_row) and (col == chosen_col):
-                    board[row][col] = change_state(board[row][col], states)
+                    board[row][col] = d_state(board[row][col], states)
                 if row == chosen_row:
                     if col == (chosen_col - 1):
-                        board[row][col] = change_state(board[row][col], states)
+                        board[row][col] = d_state(board[row][col], states)
                     elif col == (chosen_col + 1):
-                        board[row][col] = change_state(board[row][col], states)
+                        board[row][col] = d_state(board[row][col], states)
                 if col == chosen_col:
                     if row == (chosen_row - 1):
-                        board[row][col] = change_state(board[row][col], states)
+                        board[row][col] = d_state(board[row][col], states)
                     elif row == (chosen_row + 1):
-                        board[row][col] = change_state(board[row][col], states)
-        
+                        board[row][col] = d_state(board[row][col], states)
 
         offs = 0
         for row in range(5):
@@ -109,13 +96,13 @@ def Game(board, number_of_moves, states, game_Over):
         if offs == 25:
             print('Final board: ')
             display_board(board)
-            print(f"Congratulations! You won in {number_of_moves} moves (plus 1).")
+            print(f"Congratulations! You won in {number_of_moves} moves (+1).")
             game_Over = True
         else:
             number_of_moves += 1
 
 
-def change_state(light, states):
+def d_state(light, states):
     if light == states['on']:
         light = states['off']
     else:
@@ -129,18 +116,4 @@ def display_board(board):
         print(row)
 
 
-
-
-# Calls
 main()
-
-
-
-
-
-
-
-
-
-
-
