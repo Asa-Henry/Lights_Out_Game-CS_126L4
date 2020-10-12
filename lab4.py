@@ -16,6 +16,7 @@ def main():
     states = {'on': on, 'off': off}
 
     board = [[off] * 5 for i in range(5)]
+
     number_of_moves = 0
 
 
@@ -65,14 +66,18 @@ def change_neighbors(current_row, current_col, board, states):
     
     return board
 
+
+
 # Game Functions
 def Game(board, number_of_moves, states, game_Over):
     while not game_Over:
         display_board(board)
         
-        chosen_row = int(input("Please choose a row number (0 - 4): "))
-        chosen_col = int(input("Please choose a column number (0 - 4): "))
-        
+
+        chosen_row = int(input("Please choose a row number (Please, only 0 - 4): "))
+        chosen_col = int(input("Please choose a column number (Please, only 0 - 4): "))
+
+
         for row in range(5):
             for col in range(5):
                 if (row == chosen_row) and (col == chosen_col):
@@ -96,7 +101,9 @@ def Game(board, number_of_moves, states, game_Over):
                     offs += 1
 
         if offs == 25:
-            print(f"Congratulations! You won in {number_of_moves}.")
+            print('Final board: ')
+            display_board(board)
+            print(f"Congratulations! You won in {number_of_moves} moves (plus 1).")
             game_Over = True
         else:
             number_of_moves += 1
@@ -118,29 +125,5 @@ def display_board(board):
 
 
 
+# Calls
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
