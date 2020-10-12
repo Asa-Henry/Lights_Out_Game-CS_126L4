@@ -1,5 +1,8 @@
-# Contributor(s) Name(s): Asa Henry, Hunter Browning
-# Contributor(s) Email(s): ajh728@nau.edu, hsb55@nau.edu
+##################################################################
+# CS 126 Lab 4: Lights Off                                       #
+# Due: 10/14/2020                                                #
+# Asa Henry [ajh728@nau.edu] and Hunter Browning [hsb55@nau.edu] #
+##################################################################
 
 # Imports
 import random
