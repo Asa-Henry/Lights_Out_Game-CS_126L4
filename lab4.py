@@ -8,6 +8,8 @@
 import random
 
 
+
+
 # Main
 def main():
     # Setup
@@ -25,11 +27,15 @@ def main():
     board = randomize_board(board, states)
 
 
+
+
     # Game
     Game(board, number_of_moves, states, game_Over)
 
 
 
+
+# Functions
 # Setup Functions
 def randomize_board(board, states):
     for row in range(5):
